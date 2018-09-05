@@ -1,18 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import TicketList from './components/TicketList';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tickets: []
+    };
+  }
+  
+  async loadTickets (url) {
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const tickets = data.tickets;
+
+      tickets.sort((a, b) => a.price > b.price);
+
+      this.setState({ tickets });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  componentDidMount() {
+    this.loadTickets('tickets.json');
+  }
+
   render() {
+    const tickets = this.state.tickets;
+    
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="page">
+        <div className="page__wrap">
+
+          <TicketList tickets={tickets} />
+        </div>
       </div>
     );
   }
