@@ -5,11 +5,11 @@ const convertToEur = (value) => Math.round(value * 0.013);
 
 const Price = (props) => {
   let price = props.price;
-  const currency = props.currency;
+  const currentCurrency = props.currentCurrency;
 
   let currencySign;
 
-  switch (currency) {
+  switch (currentCurrency) {
     case 'USD':
       currencySign = '$';
       price = convertToUsd(price);

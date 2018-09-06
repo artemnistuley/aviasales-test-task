@@ -3,7 +3,7 @@ import Price from './Price';
 
 const TicketItem = (props) => {
   const ticket = props.ticket;
-  const currency = props.currency;
+  const currentCurrency = props.currentCurrency;
   
   return (
     <div className="ticket-item">
@@ -19,7 +19,7 @@ const TicketItem = (props) => {
         <div>{ticket.carrier}</div>
         <div>{ticket.stops}</div>
 
-        <Price price={ticket.price} currency={currency} />
+        <Price price={ticket.price} currentCurrency={currentCurrency} />
         <br/>
         <br/>
       </div>

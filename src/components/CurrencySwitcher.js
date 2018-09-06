@@ -19,23 +19,23 @@ class CurrencySwitcher extends Component {
   }
   
   render() {
-    const currency = this.props.currency;
+    const currentCurrency = this.props.currentCurrency;
 
     return (
       <div className="currency-switcher">
         <div className="currency-switcher__wrap">
           <CurrencyButton 
-            currency={currency}
+            currentCurrency={currentCurrency}
             currencyName={currencyNames.RUB}
             onClick={this.handleClick}
           />
           <CurrencyButton 
-            currency={currency}
+            currentCurrency={currentCurrency}
             currencyName={currencyNames.USD}
             onClick={this.handleClick}
           />
           <CurrencyButton 
-            currency={currency}
+            currentCurrency={currentCurrency}
             currencyName={currencyNames.EUR}
             onClick={this.handleClick}
           />

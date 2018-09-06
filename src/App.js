@@ -11,7 +11,7 @@ class App extends Component {
 
     this.state = {
       tickets: [],
-      currency: 'RUB'
+      currentCurrency: 'RUB'
     };
 
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   handleChangeCurrency(currency) {
-    this.setState({ currency });
+    this.setState({ currentCurrency: currency });
   }
 
   componentDidMount() {
@@ -41,17 +41,17 @@ class App extends Component {
   }
 
   render() {
-    const { tickets, currency } = this.state;
+    const { tickets, currentCurrency } = this.state;
     
     return (
       <div className="page">
         <div className="page__wrap">
 
           <div className="sidebar">
-            <CurrencySwitcher onCurrencyChange={this.handleChangeCurrency} currency={currency} />
+            <CurrencySwitcher onCurrencyChange={this.handleChangeCurrency} currentCurrency={currentCurrency} />
           </div>
 
-          <TicketList tickets={tickets} currency={currency} />
+          <TicketList tickets={tickets} currentCurrency={currentCurrency} />
         </div>
       </div>
     );
