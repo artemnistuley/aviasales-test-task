@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Price from './Price';
 
 const TicketItem = (props) => {
   const ticket = props.ticket;
+  const currency = props.currency;
   
   return (
     <div className="ticket-item">
@@ -16,7 +18,9 @@ const TicketItem = (props) => {
         <div>{ticket.arrival_time}</div>
         <div>{ticket.carrier}</div>
         <div>{ticket.stops}</div>
-        <div>Цена: {ticket.price}</div>
+
+        <Price price={ticket.price} currency={currency} />
+        <br/>
         <br/>
       </div>
     </div>

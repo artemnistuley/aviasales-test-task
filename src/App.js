@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 import './App.css';
 
 import TicketList from './components/TicketList';
+import CurrencySwitcher from './components/CurrencySwitcher';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      tickets: []
+      tickets: [],
+      currency: 'RUB'
     };
+
+    this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
   }
-  
-  async loadTickets (url) {
+
+  async loadTickets(url) {
 
     try {
       const response = await fetch(url);
@@ -27,18 +32,26 @@ class App extends Component {
     }
   }
 
+  handleChangeCurrency(currency) {
+    this.setState({ currency });
+  }
+
   componentDidMount() {
     this.loadTickets('tickets.json');
   }
 
   render() {
-    const tickets = this.state.tickets;
+    const { tickets, currency } = this.state;
     
     return (
       <div className="page">
         <div className="page__wrap">
 
-          <TicketList tickets={tickets} />
+          <div className="sidebar">
+            <CurrencySwitcher onCurrencyChange={this.handleChangeCurrency} currency={currency} />
+          </div>
+
+          <TicketList tickets={tickets} currency={currency} />
         </div>
       </div>
     );
