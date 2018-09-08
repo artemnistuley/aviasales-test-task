@@ -1,0 +1,16 @@
+.content {
+  padding-bottom: 10rem;
+
+  &__wrap {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.main {
+  width: calc(100% - 23.2rem);
+
+  &__wrap {
+    padding-left: 2rem;
+  }
+}

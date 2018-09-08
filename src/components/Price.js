@@ -7,28 +7,35 @@ const Price = (props) => {
   let price = props.price;
   const currentCurrency = props.currentCurrency;
 
-  let currencySign;
-
   switch (currentCurrency) {
     case 'USD':
-      currencySign = '$';
-      price = convertToUsd(price);
+      price = convertToUsd(price).toLocaleString('en-US', {
+        style: 'currency', 
+        currency: 'USD',
+        minimumFractionDigits: 0
+      });
+
       break;
+
     case 'EUR':
-      currencySign = '€';
-      price = convertToEur(price);
+      price = convertToEur(price).toLocaleString('en-US', {
+        style: 'currency', 
+        currency: 'EUR',
+        minimumFractionDigits: 0
+      });
       break;
+
     default:
-      currencySign = '₽';
+      price = price.toLocaleString('ru-RU', {
+        style: 'currency', 
+        currency: 'RUB', 
+        minimumFractionDigits: 0
+      });
   }
   
   return (
-    <span>{price} {currencySign}</span>
+    <span>{price}</span>
   )
 };
 
 export default Price;
-
-// data.toLocaleString('en-US', {style: 'currency', currency: 'EUR'})
-// data.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
-// data.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})

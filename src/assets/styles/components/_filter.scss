@@ -1,0 +1,40 @@
+.filter {
+
+    &__title {
+        font-size: 1.2rem;
+        color: $dark-gray;
+        line-height: 1.6;
+        text-transform: uppercase;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        margin-bottom: .7rem;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .85rem 1.5rem;
+
+        &:hover {
+            background-color: #F1FCFF;
+
+            .filter__button {
+                display: block;
+            }
+        }
+    }
+
+    &__button {
+        font-size: 1.1rem;
+        color: #2196F3;
+        text-transform: uppercase;
+        background: none;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+        display: none;
+    }
+}

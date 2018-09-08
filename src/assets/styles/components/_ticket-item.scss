@@ -1,0 +1,133 @@
+.ticket-item {
+  background-color: #fff;
+  border-radius: .5rem;
+  box-shadow: 0 .1rem .4rem 0 rgba(91,137,164,0.25);
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__wrap {
+    display: flex;
+  }
+
+  &__left-part {
+    width: 35.4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 2rem;
+    border-right: .1rem solid #ECEFF1;
+  }
+
+  &__right-part {
+    width: 64.6%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2.5rem;
+    position: relative;
+  }
+
+  &__logo {
+    margin-bottom: 2.1rem;
+  }
+
+  &__button {
+    width: 100%;
+  }
+
+  &__btn {
+    font-size: 1.6rem;
+    color: $white;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.2;
+    width: 100%;
+    max-width: 16rem;
+    height: 5.6rem;;
+    padding: .8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF6D00;
+    box-shadow: 0 .1rem 0 0 #D64D08, 0 .2rem .1rem 0 rgba(0,0,0,0.10);
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #FF8124;
+      box-shadow: 0 .1rem 0 0 #F7661D, 0 .1rem .5rem 0 rgba(0,0,0,0.25);
+    }
+  }
+
+  &__btn-title {
+
+    &--top {
+      margin-bottom: .3rem;
+    }
+  }
+
+  &__info {
+
+    &--departure {
+      text-align: left;
+    }
+
+    &--arrival {
+      text-align: right;
+    }
+  }
+
+  &__info-time {
+    font-size: 3.2rem;
+    color: $dark-gray;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+
+  &__info-name {
+    font-size: 1.2rem;
+    color: $dark-gray;
+    line-height: 1.4;
+  }
+
+  &__info-date {
+    font-size: 1.2rem;
+    color: $light-gray;
+    line-height: 1.5;
+  }
+
+  &__stops {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 2.5rem;
+    transform: translateX(-50%);
+  }
+
+  &__stops-title {
+    font-size: 1rem;
+    color: $light-gray;
+    text-align: center;
+    line-height: 1.5;
+    text-transform: uppercase;
+    min-width: 7rem;
+    min-height: 1.5rem;
+  }
+
+  &__stops-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  &__stops-line {
+    width: 9.6rem;
+    height: .1rem;
+    background-color: #D2D5D6;
+    margin-right: .2rem;
+  }
+}

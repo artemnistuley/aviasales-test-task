@@ -1,0 +1,57 @@
+.mobile-hidden {
+  display: none;
+
+  @include mq(tablet) {
+    display: block;
+  }
+}
+
+.mobile-visible {
+  @include mq(tablet) {
+    display: none;
+  }
+}
+
+.only-mobile {
+  display: none;
+
+  @include mq(onlyMobile) {
+    display: block;
+  }
+}
+
+.not-mobile {
+  display: none;
+
+  @include mq(tablet) {
+    display: block;
+  }
+}
+
+.desktop-hidden {
+  @include mq(desktop) {
+    display: none;
+  }
+}
+
+.desktop-visible {
+  @include mq(desktop) {
+    display: block;
+  }
+}
+
+.only-desktop {
+  display: none;
+
+  @include mq(desktop) {
+    display: block;
+  }
+}
+
+.not-desktop {
+  display: block;
+
+  @include mq(desktop) {
+    display: none;
+  }
+}

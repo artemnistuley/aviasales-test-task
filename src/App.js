@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
+import './assets/styles/style.css';
+import logo from './assets/svg/logo.svg';
+
+import Header from './components/Layout/Header';
+import Content from './components/Layout/Content';
+import Sidebar from './components/Layout/Sidebar';
+import Main from './components/Layout/Main';
 
 import TicketList from './components/TicketList';
 import CurrencySwitcher from './components/CurrencySwitcher';
+import Filter from './components/Filter';
 
 
 class App extends Component {
@@ -11,10 +18,13 @@ class App extends Component {
 
     this.state = {
       tickets: [],
-      currentCurrency: 'RUB'
+      filteredTickets: [],
+      currentCurrency: 'RUB',
+      currentFilters: []
     };
 
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
+    this.handleChangeFilter = this.handleChangeFilter.bind(this);
   }
 
   async loadTickets(url) {
@@ -26,7 +36,8 @@ class App extends Component {
 
       tickets.sort((a, b) => a.price > b.price);
 
-      this.setState({ tickets });
+      this.initialData = tickets;
+      this.setState({ tickets: this.initialData });
     } catch (error) {
       console.error(error);
     }
@@ -36,23 +47,42 @@ class App extends Component {
     this.setState({ currentCurrency: currency });
   }
 
+  handleChangeFilter(filterNames) {
+    const filteredTickets = this.initialData.filter((ticket) => (
+      filterNames.includes(`${ticket.stops}`)
+    ));
+
+    if (
+      !filterNames.length ||
+      filterNames.includes('all')
+    ) {
+      this.setState({ tickets: this.initialData });
+    } else {
+      this.setState({ tickets: filteredTickets });
+    }
+  }
+
   componentDidMount() {
     this.loadTickets('tickets.json');
   }
 
   render() {
     const { tickets, currentCurrency } = this.state;
-    
+
     return (
-      <div className="page">
-        <div className="page__wrap">
+      <div>
+        <Header logo={logo} />
 
-          <div className="sidebar">
+        <Content>
+          <Sidebar>
             <CurrencySwitcher onCurrencyChange={this.handleChangeCurrency} currentCurrency={currentCurrency} />
-          </div>
+            <Filter onFilterChange={this.handleChangeFilter} />
+          </Sidebar>
 
-          <TicketList tickets={tickets} currentCurrency={currentCurrency} />
-        </div>
+          <Main>
+            <TicketList tickets={tickets} currentCurrency={currentCurrency} />
+          </Main>
+        </Content>
       </div>
     );
   }

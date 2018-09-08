@@ -1,0 +1,31 @@
+*, 
+*:before, 
+*:after {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: (10em/16);
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: $helvetica-regular;
+  line-height: 1.4;
+  color: $dark-gray;
+  background-color: #f3f7fa;
+}
+
+.wrap {
+  max-width: 85rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}

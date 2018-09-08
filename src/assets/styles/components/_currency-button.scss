@@ -1,0 +1,77 @@
+.currency-button {
+  font-size: 1.2rem;
+  color: #2196F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 4rem;
+  background-color: $white;
+  border: .1rem solid;
+  border-color: #D2D5D6;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+
+  &--left {
+    border-right: 0;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+
+    &::after {
+      content: '';
+      display: block;
+      width: .1rem;
+      position: absolute;
+      top: -.1rem;
+      bottom: -.1rem;
+      right: -.1rem;
+      background-color: transparent;
+    }
+
+    &:hover::after  {
+      background-color: #64B5F5;
+      z-index: 1;
+    }
+  }
+
+  &--right {
+    border-left: 0;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+
+    &::before {
+      content: '';
+      display: block;
+      width: .1rem;
+      position: absolute;
+      top: -.1rem;
+      bottom: -.1rem;
+      left: -.1rem;
+      background-color: transparent;
+    }
+    
+    &:hover::before  {
+      background-color: #64B5F5;
+      z-index: 1;
+    }
+  }
+
+  &:not(&--active):hover {
+    background-color: #F2FCFF;
+    border-color: #64B5F5;
+  }
+
+  &--active {
+    background-color: #2196F3;
+    color: #fff;
+    border: 0;
+
+    &:hover::after,
+    &:hover::before {
+      display: none;
+    }
+  }
+}

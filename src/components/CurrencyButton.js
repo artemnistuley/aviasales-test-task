@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const CurrencyButton = (props) => {
   const currentCurrency = props.currentCurrency;
   const currencyName = props.currencyName;
   const onClick = props.onClick;
-
+  const modifier = props.modifier ? props.modifier : '';
+  
   return (
     <button 
-      className={`currency-button ${currencyName === currentCurrency ? 'currency-button--active' : '' }`}
+      className={`currency-button ${modifier} ${currencyName === currentCurrency ? 'currency-button--active' : '' }`}
       data-currency={currencyName}
       onClick={onClick}>
         {currencyName}

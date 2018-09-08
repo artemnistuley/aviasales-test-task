@@ -1,0 +1,32 @@
+$breakpoints: (
+    'mob' '(max-width: 46.1875em)' 'onlyMobile',
+    'small' '(max-width: 21.875em)' 'onlySmall',
+    'only-tab' '(min-width: 46.25em) and (max-width: 64em)' 'onlyTablet',
+    'only-tab-portrait' '(min-width: 46.25em) and (max-width: 64em) and (orientation: portrait)' 'onlyTabletPortrait',
+    'tab' '(min-width: 46.25em)' 'tablet',
+    'mob-tab' '(max-width: 64em)' 'notDesktop',
+    'desk' '(min-width: 64.0625em)' 'desktop',
+    'large' '(min-width: 90.0625em)' 'large'
+);
+
+@mixin mq($media-query) {
+    $breakpoint-found: false;
+
+    @each $breakpoint in $breakpoints {
+        $name: nth($breakpoint, 1);
+        $declaration: nth($breakpoint, 2);
+        $fullname: nth($breakpoint, 3);
+
+        @if $media-query == $fullname and $declaration {
+            $breakpoint-found: true;
+
+            @media only screen and #{$declaration} {
+                @content;
+            }
+        }
+    }
+
+    @if not $breakpoint-found {
+        @warn "Breakpoint ‘#{$media-query}’ does not exist";
+    }
+}

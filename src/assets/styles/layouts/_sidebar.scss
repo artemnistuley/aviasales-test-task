@@ -1,0 +1,11 @@
+.sidebar {
+    width: 23.2rem;
+    background-color: #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .1rem .4rem 0 rgba(91,137,164,0.25);
+  
+    &__wrap {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }

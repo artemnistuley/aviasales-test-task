@@ -1,0 +1,20 @@
+.currency-switcher {
+  margin-bottom: 3rem;
+
+  &__wrap {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    color: $dark-gray;
+    line-height: 1.6;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  &__buttons {
+    display: flex;
+  }
+}

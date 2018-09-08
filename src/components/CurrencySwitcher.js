@@ -24,21 +24,27 @@ class CurrencySwitcher extends Component {
     return (
       <div className="currency-switcher">
         <div className="currency-switcher__wrap">
-          <CurrencyButton 
-            currentCurrency={currentCurrency}
-            currencyName={currencyNames.RUB}
-            onClick={this.handleClick}
-          />
-          <CurrencyButton 
-            currentCurrency={currentCurrency}
-            currencyName={currencyNames.USD}
-            onClick={this.handleClick}
-          />
-          <CurrencyButton 
-            currentCurrency={currentCurrency}
-            currencyName={currencyNames.EUR}
-            onClick={this.handleClick}
-          />
+          <div className="currency-switcher__title">Валюта</div>
+          <div className="currency-switcher__buttons">
+            <CurrencyButton 
+              currentCurrency={currentCurrency}
+              currencyName={currencyNames.RUB}
+              onClick={this.handleClick}
+              modifier="currency-button--left"
+            />
+            <CurrencyButton 
+              currentCurrency={currentCurrency}
+              currencyName={currencyNames.USD}
+              onClick={this.handleClick}
+              modifier="currency-button--center"
+            />
+            <CurrencyButton 
+              currentCurrency={currentCurrency}
+              currencyName={currencyNames.EUR}
+              onClick={this.handleClick}
+              modifier="currency-button--right"
+            />
+          </div>
         </div>
       </div>
     );
