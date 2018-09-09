@@ -3,6 +3,11 @@
     background-color: #fff;
     border-radius: .5rem;
     box-shadow: 0 .1rem .4rem 0 rgba(91,137,164,0.25);
+
+    @include mq(onlyMobile) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   
     &__wrap {
       padding-top: 1.5rem;

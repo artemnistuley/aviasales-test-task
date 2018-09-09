@@ -4,13 +4,25 @@
   &__wrap {
     display: flex;
     align-items: flex-start;
+
+    @include mq(onlyMobile) {
+      flex-wrap: wrap;
+    }
   }
 }
 
 .main {
   width: calc(100% - 23.2rem);
 
+  @include mq(onlyMobile) {
+    width: 100%;
+  }
+
   &__wrap {
     padding-left: 2rem;
+
+    @include mq(onlyMobile) {
+      padding-left: 0;
+    }
   }
 }

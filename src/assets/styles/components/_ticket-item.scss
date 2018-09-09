@@ -10,6 +10,10 @@
 
   &__wrap {
     display: flex;
+
+    @include mq(onlyMobile) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__left-part {
@@ -19,6 +23,14 @@
     align-items: center;
     padding: 2.5rem 2rem;
     border-right: .1rem solid #ECEFF1;
+
+    @include mq(onlyMobile) {
+      width: 100%;
+      border-right: 0;
+      padding-top: 1rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
   }
 
   &__right-part {
@@ -27,6 +39,13 @@
     justify-content: space-between;
     padding: 2rem 2.5rem;
     position: relative;
+
+    @include mq(onlyMobile) {
+      width: 100%;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 1rem;
+    }
   }
 
   &__logo {
@@ -44,7 +63,6 @@
     text-decoration: none;
     line-height: 1.2;
     width: 100%;
-    max-width: 16rem;
     height: 5.6rem;;
     padding: .8rem;
     display: flex;
@@ -84,8 +102,15 @@
     color: $dark-gray;
     line-height: 1;
     margin-bottom: 1rem;
-  }
 
+    @include mq(onlyTabletPortrait) {
+      font-size: 2.2rem;
+    }
+
+    @include mq(onlyMobile) {
+      font-size: 2.2rem;
+    }
+  }
 
   &__info-name {
     font-size: 1.2rem;
@@ -107,6 +132,14 @@
     left: 50%;
     top: 2.5rem;
     transform: translateX(-50%);
+
+    @include mq(onlyTabletPortrait) {
+      top: 1.5rem;
+    }
+
+    @include mq(onlyMobile) {
+      top: 1.5rem;
+    }
   }
 
   &__stops-title {
