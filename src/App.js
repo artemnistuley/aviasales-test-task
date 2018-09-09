@@ -19,8 +19,7 @@ class App extends Component {
     this.state = {
       tickets: [],
       filteredTickets: [],
-      currentCurrency: 'RUB',
-      currentFilters: []
+      currentCurrency: 'RUB'
     };
 
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
