@@ -18,7 +18,6 @@ class App extends Component {
 
     this.state = {
       tickets: [],
-      filteredTickets: [],
       currentCurrency: 'RUB'
     };
 
