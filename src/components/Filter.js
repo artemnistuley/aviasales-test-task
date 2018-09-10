@@ -27,7 +27,7 @@ class Filter extends Component {
       [name]: value
     }, _ => {
       const state = this.state;
-
+      
       for (let key in state) {
         if (state[key]) {
           checkedNames.push(key);
@@ -43,15 +43,17 @@ class Filter extends Component {
     const name = target.dataset.name;
     const state = this.state;
 
+    const newState = {};
+
     for (let key in state) {
       if (key === name) {
-        state[key] = true;
+        newState[key] = true;
       } else {
-        state[key] = false;
+        newState[key] = false;
       }
     }
-
-    this.setState({ state }, _ => {
+    
+    this.setState(newState, _ => {
       this.props.onFilterChange([name]);
     });
   }
