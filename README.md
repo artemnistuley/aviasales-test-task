@@ -1,4 +1,4 @@
-# Aviasales Test Task
+# Aviasales Task
 
 ```sh
 git clone https://github.com/artemnistuley/aviasales-test-task.git
